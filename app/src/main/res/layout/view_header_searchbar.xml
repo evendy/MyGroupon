@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.evendy.groupon.view.SearchBar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/submit_input"
+    android:id="@+id/header_search"
+    android:padding="5dp"
+    android:focusable="true"
+    android:drawablePadding="10dp"
+    android:hint="@string/searchbar_hint"
+    android:textSize="@dimen/level_three_textSize"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" />

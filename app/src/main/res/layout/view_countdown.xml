@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/last_title"
+        style="@style/home_last_time_style"
+        android:background="@color/transparent"
+        android:text="@string/last_title"
+        android:textColor="@color/menu_norm" />
+
+    <TextView
+        android:id="@+id/last_hour"
+        style="@style/home_last_time_style"
+        android:text="01" />
+
+    <ImageView style="@style/home_last_time_divider_style" />
+
+    <TextView
+        android:id="@+id/last_min"
+        style="@style/home_last_time_style"
+        android:text="01" />
+
+    <ImageView style="@style/home_last_time_divider_style" />
+
+    <TextView
+        android:id="@+id/last_second"
+        style="@style/home_last_time_style"
+        android:text="01" />
+
+
+</LinearLayout>

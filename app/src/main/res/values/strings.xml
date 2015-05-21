@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">糯米</string>
+
+    <string name="nearby">附近</string>
+    <string name="home">首页</string>
+    <string name="mine">我的</string>
+    <string name="featured">精选</string>
+
+    <string name="help">帮助</string>
+
+    <string name="coupon">糯米券</string>
+    <string name="unpaid">待付款</string>
+    <string name="unreceive">待收货</string>
+    <string name="favorite">收藏</string>
+
+    <string name="paid">订单</string>
+    <string name="hotel">酒店预订</string>
+    <string name="vip_account">VIP会员</string>
+    <string name="store_card">卡包</string>
+    <string name="lucky_money">红包</string>
+    <string name="voucher">抵用券</string>
+    <string name="wallet">百度钱包</string>
+    <string name="message">消息</string>
+
+    <string name="mine_paid_msg">%1$s 单待评价</string>
+    <string name="mine_vip_tips">开通会员,专享特权</string>
+    <string name="luckly_money_sum">%1$s 元</string>
+    <string name="voucher_num"> %1$s </string>
+
+    <string name="featured_brand">精选品牌</string>
+    <string name="more_featured_brand">更多精选品牌</string>
+
+    <string name="guess_you_like">猜你喜欢</string>
+    <string name="all_groupon">全部团购</string>
+    <string name="check_all_groupon">查看全部团购</string>
+
+    <string name="last_title">距开始</string>
+
+    <string name="everyday_push">每日推荐</string>
+
+    <string name="main_featured_vip_item">抢购不限时&amp;下单享立减</string>
+
+    <string name="main_featured_list_title">每人每天全场累计优惠2份</string>
+    <string name="searchbar_hint">搜索商家,分类,地点</string>
+</resources>

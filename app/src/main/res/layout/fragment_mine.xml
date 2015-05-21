@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/app_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <cn.evendy.groupon.view.headerbar.HeaderBar
+        android:id="@+id/main_mine_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:background="@drawable/header_background"
+        app:hTitle="@string/mine"
+        app:rightIcon="@mipmap/mine_settings" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView style="@style/menu_item_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/bg_my_account"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:id="@+id/mine_user_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/mine_user_avator"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/login_nuomi" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/mine_user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dp"
+                            android:drawableRight="@drawable/mine_user_vip"
+                            android:enabled="false"
+                            android:text="@string/app_name"
+                            android:textColor="@color/mine_user" />
+
+                    </LinearLayout>
+
+                    <ImageView style="@style/menu_item_arrows" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <ImageView style="@style/menu_item_line" />
+
+            <cn.evendy.groupon.view.menu.MenuBar
+                android:id="@+id/mine_menu"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+            </cn.evendy.groupon.view.menu.MenuBar>
+
+            <ImageView style="@style/menu_item_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mine_item_margin"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <ImageView style="@style/menu_item_line" />
+
+                <RelativeLayout
+                    android:id="@+id/mine_paid"
+                    style="@style/mine_menu_item">
+
+                    <TextView
+                        android:id="@+id/mine_paid_item"
+                        style="@style/mine_item"
+                        android:drawableLeft="@drawable/mine_paid"
+                        android:text="@string/paid" />
+
+                    <ImageView
+                        android:id="@+id/mine_paid_arrows"
+                        style="@style/menu_item_arrows" />
+
+                    <TextView
+                        android:id="@+id/mine_paid_msg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/mine_paid_arrows"
+                        android:text="@string/mine_paid_msg" />
+                </RelativeLayout>
+
+                <ImageView style="@style/mine_item_line" />
+
+                <RelativeLayout
+                    android:id="@+id/mine_hotel"
+                    style="@style/mine_menu_item">
+
+                    <TextView
+                        android:id="@+id/mine_hotel_item"
+                        style="@style/mine_item"
+                        android:drawableLeft="@drawable/mine_hotel"
+                        android:text="@string/hotel" />
+
+                    <ImageView style="@style/menu_item_arrows" />
+                </RelativeLayout>
+
+                <ImageView style="@style/menu_item_line" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mine_item_margin"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <ImageView style="@style/menu_item_line" />
+
+                <RelativeLayout
+                    android:id="@+id/mine_vip"
+                    style="@style/mine_menu_item">
+
+                    <TextView
+                        android:id="@+id/mine_vip_item"
+                        style="@style/mine_item"
+                        android:drawableLeft="@drawable/mine_vip"
+                        android:text="@string/vip_account" />
+
+                    <ImageView
+                        android:id="@+id/mine_vip_arrows"
+                        style="@style/menu_item_arrows" />
+
+                    <TextView
+                        android:id="@+id/mine_vip_tips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/mine_vip_arrows"
+                        android:text="@string/mine_vip_tips"
+                        android:textColor="@color/mine_item_tips" />
+
+                </RelativeLayout>
+
+                <ImageView style="@style/menu_item_line" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mine_item_margin"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <ImageView style="@style/menu_item_line" />
+
+                <RelativeLayout
+                    android:id="@+id/mine_store_card"
+                    style="@style/mine_menu_item">
+
+                    <TextView
+                        android:id="@+id/mine_store_card_item"
+                        style="@style/mine_item"
+                        android:drawableLeft="@drawable/mine_store_card"
+                        android:text="@string/store_card" />
+
+                    <ImageView style="@style/menu_item_arrows" />
+                </RelativeLayout>
+
+                <ImageView style="@style/mine_item_line" />
+
+                <RelativeLayout
+                    android:id="@+id/mine_luckly_money"
+                    style="@style/mine_menu_item">
+
+                    <TextView
+                        android:id="@+id/mine_luckly_money_item"
+                        style="@style/mine_item"
+                        android:drawableLeft="@drawable/mine_luckly_money"
+                        android:text="@string/lucky_money" />
+
+                    <ImageView
+                        android:id="@+id/mine_luckly_money_arrows"
+                        style="@style/menu_item_arrows" />
+
+                    <TextView
+                        android:id="@+id/luckly_money_sum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/mine_luckly_money_arrows"
+                        android:text="@string/luckly_money_sum" />
+                </RelativeLayout>
+
+                <ImageView style="@style/mine_item_line" />
+
+                <RelativeLayout
+                    android:id="@+id/mine_voucher"
+                    style="@style/mine_menu_item">
+
+                    <TextView
+                        android:id="@+id/mine_voucher_item"
+                        style="@style/mine_item"
+                        android:drawableLeft="@drawable/mine_voucher"
+                        android:text="@string/voucher" />
+
+                    <ImageView
+                        android:id="@+id/mine_voucher_arrows"
+                        style="@style/menu_item_arrows" />
+
+                    <TextView
+                        android:id="@+id/voucher_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/mine_voucher_arrows"
+                        android:text="@string/voucher_num" />
+                </RelativeLayout>
+
+                <ImageView style="@style/mine_item_line" />
+
+                <RelativeLayout
+                    android:id="@+id/mine_wallet"
+                    style="@style/mine_menu_item">
+
+                    <TextView
+                        android:id="@+id/mine_wallet_item"
+                        style="@style/mine_item"
+                        android:drawableLeft="@drawable/mine_wallet"
+                        android:text="@string/wallet" />
+
+                    <ImageView style="@style/menu_item_arrows" />
+                </RelativeLayout>
+
+                <ImageView style="@style/menu_item_line" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/mine_item_margin"
+                android:layout_marginTop="@dimen/mine_item_margin"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <ImageView style="@style/menu_item_line" />
+
+                <RelativeLayout
+                    android:id="@+id/mine_msg"
+                    style="@style/mine_menu_item">
+
+                    <TextView
+                        android:id="@+id/mine_msg_item"
+                        style="@style/mine_item"
+                        android:drawableLeft="@drawable/mine_message"
+                        android:text="@string/message" />
+
+                    <ImageView style="@style/menu_item_arrows" />
+                </RelativeLayout>
+
+                <ImageView style="@style/menu_item_line" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

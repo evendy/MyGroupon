@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="def">
+        <attr name="style" format="reference"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="DeleteTextView">
+        <attr name="lineColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="HeaderBar">
+        <attr name="hTitle" format="string" />
+        <attr name="hIcon" format="reference" />
+        <attr name="rightText" format="string" />
+        <attr name="rightIcon" format="reference" />
+    </declare-styleable>
+
+</resources>

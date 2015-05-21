@@ -1,0 +1,71 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="app_background">
+        <item name="android:background">@color/app_background</item>
+    </style>
+
+    <style name="mine_menu_item">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="mine_item">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="menu_item_line">
+        <item name="android:src">@drawable/menu_item_line</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.01dp</item>
+    </style>
+
+    <style name="mine_item_line">
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:src">@drawable/menu_item_line</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.01dp</item>
+    </style>
+
+    <style name="menu_item_arrows">
+        <item name="android:src">@mipmap/icon_arrows_gray_right</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="home_last_time_style">
+        <item name="android:textColor">@color/last_time_textColor</item>
+        <item name="android:padding">1dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:background">@drawable/home_last_time_background</item>
+        <item name="android:textSize">@dimen/level_two_textSize</item>
+    </style>
+
+    <style name="home_last_time_divider_style">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:src">@mipmap/home_top10_time_divider</item>
+    </style>
+
+
+</resources>

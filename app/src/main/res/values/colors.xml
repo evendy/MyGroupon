@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="menu_active">#FD4682</color>
+    <color name="menu_norm">#7A7E82</color>
+    <color name="mine_item_tips">#FD4682</color>
+    <color name="app_background">#F2F2F2</color>
+
+    <color name="mine_user">@android:color/white</color>
+
+    <drawable name="menu_item_line">#C5C5C5</drawable>
+
+    <color name="last_time_background">#87878C</color>
+    <color name="last_time_textColor">#FFFFFF</color>
+
+    <color name="transparent">@android:color/transparent</color>
+    <color name="line_def">#7A7E82</color>
+    <color name="line_red">#FD4682</color>
+
+</resources>
