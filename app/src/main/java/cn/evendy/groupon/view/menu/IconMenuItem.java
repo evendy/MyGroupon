@@ -1,4 +1,4 @@
-package cn.evendy.groupon.menu;
+package cn.evendy.groupon.view.menu;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -17,9 +17,9 @@ public class IconMenuItem extends MenuItem {
 
     private LayoutInflater inflater;
     private int iconRes;
-    private int nameRes;
+    private String nameRes;
 
-    public IconMenuItem(Context context, int iconRes, int nameRes) {
+    public IconMenuItem(Context context, int iconRes, String nameRes) {
         this.inflater = LayoutInflater.from(context);
         this.iconRes = iconRes;
         this.nameRes = nameRes;

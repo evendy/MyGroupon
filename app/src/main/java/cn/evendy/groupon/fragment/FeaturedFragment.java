@@ -16,7 +16,7 @@ import butterknife.InjectView;
 import cn.evendy.groupon.R;
 import cn.evendy.groupon.base.BaseFragment;
 import cn.evendy.groupon.constans.HeaderStyle;
-import cn.evendy.groupon.listener.HeaderRightBTNClickListener;
+import cn.evendy.groupon.view.listener.HeaderRightBTNClickListener;
 import cn.evendy.groupon.util.TimeUtils;
 import cn.evendy.groupon.view.headerbar.HeaderBar;
 

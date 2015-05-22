@@ -7,11 +7,14 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,17 +23,21 @@ import butterknife.InjectView;
 import cn.evendy.groupon.R;
 import cn.evendy.groupon.base.BaseFragment;
 import cn.evendy.groupon.constans.HeaderStyle;
-import cn.evendy.groupon.listener.MenuItemClickListener;
-import cn.evendy.groupon.listener.HeaderRightBTNClickListener;
-import cn.evendy.groupon.listener.HeaderLeftTextClickListener;
+import cn.evendy.groupon.view.adapter.CommonAdapter;
+import cn.evendy.groupon.view.adapter.GrouponAdapter;
+import cn.evendy.groupon.view.adapter.ViewHolder;
+import cn.evendy.groupon.view.listener.MenuItemClickListener;
+import cn.evendy.groupon.view.listener.HeaderRightBTNClickListener;
+import cn.evendy.groupon.view.listener.HeaderLeftTextClickListener;
 
-import cn.evendy.groupon.menu.FeatureMenuItem;
+import cn.evendy.groupon.view.menu.FeatureMenuItem;
+import cn.evendy.groupon.view.menu.RightIconMenuItem;
 import cn.evendy.groupon.util.TimeUtils;
 import cn.evendy.groupon.view.SearchBar.OnSearchVoiceClickListener;
 import cn.evendy.groupon.view.SearchBar.OnSearchTextClickListener;
 import cn.evendy.groupon.view.adapter.AdViewPagerAdapter;
 import cn.evendy.groupon.view.headerbar.HeaderBar;
-import cn.evendy.groupon.view.menu.MenuBar;
+import cn.evendy.groupon.view.menubar.MenuBar;
 
 
 /**
@@ -38,7 +45,7 @@ import cn.evendy.groupon.view.menu.MenuBar;
  * @time: 2015/5/17 12:19
  * @mail: 244085027@qq.comOn
  */
-public class HomeFragment extends BaseFragment implements MenuItemClickListener, OnSearchVoiceClickListener, OnSearchTextClickListener, HeaderLeftTextClickListener, HeaderRightBTNClickListener, AdViewPagerAdapter.ShowItemClickListener {
+public class HomeFragment extends BaseFragment implements OnSearchVoiceClickListener, OnSearchTextClickListener, HeaderLeftTextClickListener, HeaderRightBTNClickListener, AdViewPagerAdapter.ShowItemClickListener, AdapterView.OnItemClickListener {
     @InjectView(R.id.home_featured_menu)
     protected MenuBar featuredMenu;
     @InjectView(R.id.last_hour)
@@ -53,6 +60,12 @@ public class HomeFragment extends BaseFragment implements MenuItemClickListener,
     protected HeaderBar headerBar;
     @InjectView(R.id.home_style_menu)
     protected ViewPager styleMenu;
+    @InjectView(R.id.home_special_push_menu)
+    protected MenuBar sPushMenuBar;
+    @InjectView(R.id.guess_like_list)
+    protected ListView grouponList;
+
+    private GrouponAdapter gAdapter;
 
     private Timer timer;
 
@@ -78,6 +91,34 @@ public class HomeFragment extends BaseFragment implements MenuItemClickListener,
         initStyleMenu();
         initFeatureMenu();
         initCountDownTimer();
+        initSpushMenuBar();
+        initGrouponMain();
+    }
+
+    private void initGrouponMain() {
+        allGrouponBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "click allGrouponBTN ", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+
+        gAdapter = new GrouponAdapter(getContext(), list, -1);
+        grouponList.setAdapter(gAdapter);
+        grouponList.setOnItemClickListener(this);
+    }
+
+    private void initSpushMenuBar() {
+        sPushMenuBar.addView(new RightIconMenuItem(getContext(), null, "快来摇一摇", "5亿红包疯抢").getView());
+        sPushMenuBar.addView(new RightIconMenuItem(getContext(), null, "快来摇一摇", "5亿红包疯抢").getView());
+        sPushMenuBar.setMenuItemClickListener(new MenuItemClickListener() {
+            @Override
+            public void menuItemClick(View menuView, int position) {
+                Toast.makeText(getContext(), "click sPushMenuBar " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initStyleMenu() {
@@ -104,7 +145,12 @@ public class HomeFragment extends BaseFragment implements MenuItemClickListener,
         featuredMenu.addView(new FeatureMenuItem(getContext(), null, "menu", "60", "120").getView());
         featuredMenu.addView(new FeatureMenuItem(getContext(), null, "menu", "60", "120").getView());
         featuredMenu.addView(new FeatureMenuItem(getContext(), null, "menu", "60", "120").getView());
-        featuredMenu.setMenuItemClickListener(this);
+        featuredMenu.setMenuItemClickListener(new MenuItemClickListener() {
+            @Override
+            public void menuItemClick(View menuView, int position) {
+                Toast.makeText(getContext(), "click featuredMenu " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -136,11 +182,6 @@ public class HomeFragment extends BaseFragment implements MenuItemClickListener,
     }
 
     @Override
-    public void menuItemClick(View menuView, int position) {
-        Toast.makeText(getContext(), "click FeatureMenu " + position, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void onDestroy() {
         super.onDestroy();
         timer.cancel();
@@ -169,5 +210,11 @@ public class HomeFragment extends BaseFragment implements MenuItemClickListener,
     @Override
     public void onShowItemClick(long position) {
         Toast.makeText(getContext(), "click onShowItemClick " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(getContext(), "click Groupon list " + position, Toast.LENGTH_SHORT).show();
+
     }
 }

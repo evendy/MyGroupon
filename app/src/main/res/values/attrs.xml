@@ -15,4 +15,8 @@
         <attr name="rightIcon" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="MenuBar">
+        <attr name="menu_divider" format="reference" />
+    </declare-styleable>
+
 </resources>

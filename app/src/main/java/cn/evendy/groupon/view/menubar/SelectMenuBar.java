@@ -1,11 +1,11 @@
-package cn.evendy.groupon.view.menu;
+package cn.evendy.groupon.view.menubar;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-import cn.evendy.groupon.listener.MenuItemSelectListener;
-import cn.evendy.groupon.listener.MenuSelectItemChangeListener;
+import cn.evendy.groupon.view.listener.MenuItemSelectListener;
+import cn.evendy.groupon.view.listener.MenuSelectItemChangeListener;
 
 /**
  * @author: evendy
@@ -37,14 +37,14 @@ public class SelectMenuBar extends MenuBar {
     }
 
     private void setCurrentItemSelect(int menuIndex) {
-        if (menuIndex > getChildCount())
+        if (menuIndex > getMenuCount())
             throw new RuntimeException("current Select Item index more than ChildCount");
         View childView;
-        for (int i = 0; i < getChildCount(); i++) {
-            childView = getChildAt(i);
+        for (int i = 0; i < getMenuCount(); i++) {
+            childView = getChildMenuViewAt(i);
             childView.setSelected(false);
         }
-        getChildAt(menuIndex).setSelected(true);
+        getChildMenuViewAt(menuIndex).setSelected(true);
         selectItemIndex = menuIndex;
     }
 
@@ -57,10 +57,10 @@ public class SelectMenuBar extends MenuBar {
     }
 
     public void setCurSelectItem(int index) {
-        if (index < 0 || index > getChildCount() - 1) {
+        if (index < 0 || index > getMenuCount() - 1) {
             throw new RuntimeException("Select Item index out of ChildCount");
         }
-        onMenuItemSelect(getChildAt(index), index);
+        onMenuItemSelect(getChildMenuViewAt(index), index);
     }
 
     public int getCurSelectItemIndex() {

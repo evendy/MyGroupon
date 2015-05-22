@@ -1,4 +1,4 @@
-package cn.evendy.groupon.listener;
+package cn.evendy.groupon.view.listener;
 
 import android.view.View;
 

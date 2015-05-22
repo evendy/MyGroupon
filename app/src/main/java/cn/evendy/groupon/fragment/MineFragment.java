@@ -13,11 +13,11 @@ import butterknife.OnClick;
 import cn.evendy.groupon.R;
 import cn.evendy.groupon.base.BaseFragment;
 import cn.evendy.groupon.constans.HeaderStyle;
-import cn.evendy.groupon.listener.HeaderRightBTNClickListener;
-import cn.evendy.groupon.listener.MenuItemClickListener;
-import cn.evendy.groupon.menu.MineMenuItem;
+import cn.evendy.groupon.view.listener.HeaderRightBTNClickListener;
+import cn.evendy.groupon.view.listener.MenuItemClickListener;
+import cn.evendy.groupon.view.menu.MineMenuItem;
 import cn.evendy.groupon.view.headerbar.HeaderBar;
-import cn.evendy.groupon.view.menu.MenuBar;
+import cn.evendy.groupon.view.menubar.MenuBar;
 
 /**
  * @author: evendy

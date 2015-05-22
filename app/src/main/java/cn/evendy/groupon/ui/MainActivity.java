@@ -11,9 +11,9 @@ import cn.evendy.groupon.fragment.FeaturedFragment;
 import cn.evendy.groupon.fragment.HomeFragment;
 import cn.evendy.groupon.fragment.MineFragment;
 import cn.evendy.groupon.fragment.NearbyFragment;
-import cn.evendy.groupon.listener.MenuSelectItemChangeListener;
-import cn.evendy.groupon.menu.IconMenuItem;
-import cn.evendy.groupon.view.menu.SelectMenuBar;
+import cn.evendy.groupon.view.listener.MenuSelectItemChangeListener;
+import cn.evendy.groupon.view.menu.IconMenuItem;
+import cn.evendy.groupon.view.menubar.SelectMenuBar;
 
 /**
  * @author: evendy
@@ -38,10 +38,10 @@ public class MainActivity extends BaseActivity implements MenuSelectItemChangeLi
 
     private void initViews() {
         menuBar = findView(R.id.bottom_bar);
-        menuBar.addView(new IconMenuItem(getContext(), R.drawable.tab_home, R.string.home).getView());
-        menuBar.addView(new IconMenuItem(getContext(), R.drawable.tab_nearby, R.string.nearby).getView());
-        menuBar.addView(new IconMenuItem(getContext(), R.drawable.tab_featured, R.string.featured).getView());
-        menuBar.addView(new IconMenuItem(getContext(), R.drawable.tab_mine, R.string.mine).getView());
+        menuBar.addView(new IconMenuItem(getContext(), R.drawable.tab_home, getResources().getString(R.string.home)).getView());
+        menuBar.addView(new IconMenuItem(getContext(), R.drawable.tab_nearby, getResources().getString(R.string.nearby)).getView());
+        menuBar.addView(new IconMenuItem(getContext(), R.drawable.tab_featured, getResources().getString(R.string.featured)).getView());
+        menuBar.addView(new IconMenuItem(getContext(), R.drawable.tab_mine, getResources().getString(R.string.mine)).getView());
 
         menuBar.setMenuSelectItemChangeListener(this);
         menuBar.setCurSelectItem(TAB_HOME);

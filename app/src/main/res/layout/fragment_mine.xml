@@ -71,14 +71,14 @@
 
             <ImageView style="@style/menu_item_line" />
 
-            <cn.evendy.groupon.view.menu.MenuBar
+            <cn.evendy.groupon.view.menubar.MenuBar
                 android:id="@+id/mine_menu"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@android:color/white"
                 android:orientation="horizontal">
 
-            </cn.evendy.groupon.view.menu.MenuBar>
+            </cn.evendy.groupon.view.menubar.MenuBar>
 
             <ImageView style="@style/menu_item_line" />
 

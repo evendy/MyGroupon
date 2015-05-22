@@ -1,4 +1,4 @@
-package cn.evendy.groupon.menu;
+package cn.evendy.groupon.view.menu;
 
 import android.view.View;
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/app_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,6 +10,7 @@
         android:id="@+id/main_home_header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/header_height"
+        app:rightIcon="@mipmap/icon_nav_saoyisao_normal"
         android:background="@drawable/header_background" />
 
     <ScrollView
@@ -97,7 +99,7 @@
 
                 </RelativeLayout>
 
-                <cn.evendy.groupon.view.menu.MenuBar
+                <cn.evendy.groupon.view.menubar.MenuBar
                     android:id="@+id/home_featured_menu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -107,16 +109,12 @@
 
             <ImageView style="@style/menu_item_line" />
 
-            <LinearLayout
+            <cn.evendy.groupon.view.menubar.MenuBar
+                app:menu_divider="@drawable/menu_divider"
+                android:id="@+id/home_special_push_menu"
                 android:layout_width="match_parent"
-                android:layout_height="90dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="特别推荐" />
-            </LinearLayout>
+                android:layout_height="90dp"
+                android:layout_weight="1" />
 
             <ImageView style="@style/menu_item_line" />
 

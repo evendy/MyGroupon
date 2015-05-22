@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import cn.evendy.groupon.R;
 import cn.evendy.groupon.constans.HeaderStyle;
-import cn.evendy.groupon.listener.HeaderBackBTNClickListener;
-import cn.evendy.groupon.listener.SpinnerClickListener;
+import cn.evendy.groupon.view.listener.HeaderBackBTNClickListener;
+import cn.evendy.groupon.view.listener.SpinnerClickListener;
 
 public class BackHeaderBar extends HeaderBar {
     private View headerBackBTN;
