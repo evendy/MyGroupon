@@ -42,4 +42,12 @@
 
     <string name="main_featured_list_title">每人每天全场累计优惠2份</string>
     <string name="searchbar_hint">搜索商家,分类,地点</string>
+
+    <string name="sale_price">特价</string>
+
+    <string name="active_price">减</string>
+    <string name="low_price">低</string>
+
+    <string name="price">¥ %1$s</string>
+    <string name="sale_number">已售 %1$s</string>
 </resources>

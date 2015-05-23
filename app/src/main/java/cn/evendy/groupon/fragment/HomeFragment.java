@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -22,6 +21,9 @@ import butterknife.InjectView;
 import cn.evendy.groupon.R;
 import cn.evendy.groupon.base.BaseFragment;
 import cn.evendy.groupon.constans.HeaderStyle;
+import cn.evendy.groupon.module.GrouponItemDTO;
+import cn.evendy.groupon.module.GrouponListDTO;
+import cn.evendy.groupon.util.CommonUtils;
 import cn.evendy.groupon.util.TimeUtils;
 import cn.evendy.groupon.view.SearchBar.OnSearchTextClickListener;
 import cn.evendy.groupon.view.SearchBar.OnSearchVoiceClickListener;
@@ -94,23 +96,66 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
     }
 
     private void initGrouponMain() {
+        List<GrouponItemDTO> list = new ArrayList<GrouponItemDTO>();
+
+        GrouponItemDTO itemDTO = new GrouponItemDTO();
+        itemDTO.setName("童子鸡");
+        itemDTO.setDescribe("好好吃的童子鸡");
+        itemDTO.setDistance(1000);
+        itemDTO.setPrice(100);
+        itemDTO.setSaleNumber(1000);
+        list.add(itemDTO);
+
+        itemDTO = new GrouponItemDTO();
+        itemDTO.setDistance(10000);
+        itemDTO.setName("童子鸡");
+        itemDTO.setDescribe("好好吃的童子鸡");
+        itemDTO.setOriginalPrice(100.0f);
+        itemDTO.setSalePrice(80);
+        list.add(itemDTO);
+
+        itemDTO = new GrouponItemDTO();
+        itemDTO.setName("童子鸡");
+        itemDTO.setDescribe("好好吃的童子鸡");
+        itemDTO.setOriginalPrice(100.0f);
+        itemDTO.setSalePrice(80.0f);
+        itemDTO.setIsLow(true);
+        list.add(itemDTO);
+
+        itemDTO = new GrouponItemDTO();
+        itemDTO.setName("童子鸡");
+        itemDTO.setDescribe("好好吃的童子鸡");
+        itemDTO.setOriginalPrice(100.0f);
+        itemDTO.setSalePrice(80.0f);
+        itemDTO.setIsLow(true);
+        List<String> actives = new ArrayList<>();
+        actives.add("xxxx");
+        itemDTO.setActives(actives);
+        list.add(itemDTO);
+
+
+        gAdapter = new GrouponAdapter(getContext(), list);
+        grouponList.setAdapter(gAdapter);
+
+        CommonUtils.setListViewHeightBasedOnChildren(grouponList);
+
+        grouponList.setOnItemClickListener(this);
+
         allGrouponBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showToast("click allGrouponBTN ");
             }
         });
-
-        List<Map<String, String>> list = new ArrayList<Map<String, String>>();
-
-        gAdapter = new GrouponAdapter(getContext(), list, -1);
-        grouponList.setAdapter(gAdapter);
-        grouponList.setOnItemClickListener(this);
     }
 
     private void initSpushMenuBar() {
-        sPushMenuBar.addView(new RightIconMenuItem(getContext(), null, "快来摇一摇", "5亿红包疯抢").getView());
-        sPushMenuBar.addView(new RightIconMenuItem(getContext(), null, "快来摇一摇", "5亿红包疯抢").getView());
+        GrouponListDTO grouponListDTO = new GrouponListDTO();
+        grouponListDTO.setName("快来摇一摇");
+        grouponListDTO.setDescribe("5亿红包疯抢");
+
+        sPushMenuBar.addView(new RightIconMenuItem(getContext(), null, grouponListDTO.getName(), grouponListDTO.getDescribe()).getView());
+        sPushMenuBar.addView(new RightIconMenuItem(getContext(), null, grouponListDTO.getName(), grouponListDTO.getDescribe()).getView());
         sPushMenuBar.setMenuItemClickListener(new MenuItemClickListener() {
             @Override
             public void menuItemClick(View menuView, int position) {
@@ -160,9 +205,14 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
     }
 
     private void initFeatureMenu() {
-        featuredMenu.addView(new FeatureMenuItem(getContext(), null, "menu", "60", "120").getView());
-        featuredMenu.addView(new FeatureMenuItem(getContext(), null, "menu", "60", "120").getView());
-        featuredMenu.addView(new FeatureMenuItem(getContext(), null, "menu", "60", "120").getView());
+        GrouponListDTO grouponListDTO = new GrouponListDTO();
+        grouponListDTO.setName("menu");
+        grouponListDTO.setOriginalPrice(120);
+        grouponListDTO.setSalePrice(60);
+
+        featuredMenu.addView(new FeatureMenuItem(getContext(), null, grouponListDTO.getName(), "" + grouponListDTO.getSaleNumber(), "" + grouponListDTO.getOriginalPrice()).getView());
+        featuredMenu.addView(new FeatureMenuItem(getContext(), null, grouponListDTO.getName(), "" + grouponListDTO.getSaleNumber(), "" + grouponListDTO.getOriginalPrice()).getView());
+        featuredMenu.addView(new FeatureMenuItem(getContext(), null, grouponListDTO.getName(), "" + grouponListDTO.getSaleNumber(), "" + grouponListDTO.getOriginalPrice()).getView());
         featuredMenu.setMenuItemClickListener(new MenuItemClickListener() {
             @Override
             public void menuItemClick(View menuView, int position) {
@@ -232,7 +282,7 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        showToast("click Groupon list ");
+        showToast("click Groupon list " + position);
 
     }
 }

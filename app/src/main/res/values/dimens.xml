@@ -14,4 +14,6 @@
     <dimen name="header_text_size">18sp</dimen>
     <dimen name="header_height">50dp</dimen>
 
+    <dimen name="home_groupon_item_height">100dp</dimen>
+
 </resources>

@@ -11,7 +11,6 @@ import android.view.View.OnFocusChangeListener;
 import android.view.animation.Animation;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import cn.evendy.groupon.R;
@@ -76,7 +75,7 @@ public class SearchBar extends EditText implements TextWatcher,
         } else {
             showClearIcon(false);
         }
-        showShakeAnimation(hasFocus);
+//        showShakeAnimation(hasFocus);
     }
 
     @Override

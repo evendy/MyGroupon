@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/home_groupon_item_height"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:text="name"
+                android:textSize="@dimen/level_one_textSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/item_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:text="distance"
+                android:textSize="@dimen/level_three_textSize" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/item_describe"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="bottom"
+            android:lines="2"
+            android:text="describe"
+            android:textSize="@dimen/level_two_textSize" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/item_sale_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:text="sale_num"
+                android:textSize="@dimen/level_three_textSize" />
+
+            <RelativeLayout
+                android:id="@+id/group_price_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true">
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/item_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="5dp"
+                    android:text="price"
+                    android:textColor="@color/groupon_price"
+                    android:textSize="@dimen/level_one_textSize"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/group_sale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="5dp"
+                        android:text="@string/sale_price"
+                        android:textColor="@color/groupon_price"
+                        android:textSize="@dimen/level_two_textSize" />
+
+                    <TextView
+                        android:id="@+id/item_current_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="5dp"
+                        android:text="99.0"
+                        android:textColor="@color/groupon_price"
+                        android:textSize="@dimen/level_one_textSize"
+                        android:textStyle="bold" />
+
+                    <cn.evendy.groupon.view.DeleteTextView
+                        android:id="@+id/item_original_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:text="120.0"
+                        android:textSize="@dimen/level_three_textSize" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/group_price_type_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/group_price_layout"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/item_active_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3dp"
+                    android:background="@drawable/groupon_listitem_tag_bg"
+                    android:text="@string/active_price"
+                    android:textColor="@color/groupon_price"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/item_low_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/groupon_listitem_tag_bg"
+                    android:text="@string/low_price"
+                    android:textColor="@color/groupon_price"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

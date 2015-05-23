@@ -45,7 +45,7 @@ public class FeatureMenuItem extends MenuItem {
             vName.setText(menuName);
         }
         if (null != nPrice) {
-            vNprice.setText("¥ " + nPrice);
+            vNprice.setText(context.getString(R.string.price, nPrice));
         }
         if (null != oPrice) {
             vOprice.setText(oPrice);

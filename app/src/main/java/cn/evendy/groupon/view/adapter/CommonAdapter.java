@@ -19,11 +19,11 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 
     /**
      * @param context
-     * @param list        待装载的数据
+     * @param list         待装载的数据
      * @param itemLayoutId adapter的每一项的视图
      */
     public CommonAdapter(Context context, List<T> list, int itemLayoutId) {
-        this.mContext = context;
+        setContext(context);
         this.mData = list;
         this.itemLayoutId = itemLayoutId;
     }
@@ -56,4 +56,11 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
         return ViewHolder.get(mContext, convertView, parent, itemLayoutId, position);
     }
 
+    public Context getContext() {
+        return mContext;
+    }
+
+    public void setContext(Context mContext) {
+        this.mContext = mContext;
+    }
 }
