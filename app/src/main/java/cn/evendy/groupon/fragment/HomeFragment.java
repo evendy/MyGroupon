@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,21 +22,20 @@ import butterknife.InjectView;
 import cn.evendy.groupon.R;
 import cn.evendy.groupon.base.BaseFragment;
 import cn.evendy.groupon.constans.HeaderStyle;
-import cn.evendy.groupon.view.adapter.CommonAdapter;
+import cn.evendy.groupon.util.TimeUtils;
+import cn.evendy.groupon.view.SearchBar.OnSearchTextClickListener;
+import cn.evendy.groupon.view.SearchBar.OnSearchVoiceClickListener;
+import cn.evendy.groupon.view.adapter.AdViewPagerAdapter;
 import cn.evendy.groupon.view.adapter.GrouponAdapter;
-import cn.evendy.groupon.view.adapter.ViewHolder;
-import cn.evendy.groupon.view.listener.MenuItemClickListener;
-import cn.evendy.groupon.view.listener.HeaderRightBTNClickListener;
+import cn.evendy.groupon.view.headerbar.HeaderBar;
 import cn.evendy.groupon.view.listener.HeaderLeftTextClickListener;
-
+import cn.evendy.groupon.view.listener.HeaderRightBTNClickListener;
+import cn.evendy.groupon.view.listener.MenuItemClickListener;
 import cn.evendy.groupon.view.menu.FeatureMenuItem;
 import cn.evendy.groupon.view.menu.RightIconMenuItem;
-import cn.evendy.groupon.util.TimeUtils;
-import cn.evendy.groupon.view.SearchBar.OnSearchVoiceClickListener;
-import cn.evendy.groupon.view.SearchBar.OnSearchTextClickListener;
-import cn.evendy.groupon.view.adapter.AdViewPagerAdapter;
-import cn.evendy.groupon.view.headerbar.HeaderBar;
+import cn.evendy.groupon.view.menu.ViewPagerIndicator;
 import cn.evendy.groupon.view.menubar.MenuBar;
+import cn.evendy.groupon.view.menubar.SelectMenuBar;
 
 
 /**
@@ -64,13 +62,13 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
     protected MenuBar sPushMenuBar;
     @InjectView(R.id.guess_like_list)
     protected ListView grouponList;
-
-    private GrouponAdapter gAdapter;
+    @InjectView(R.id.home_style_menu_indicator)
+    protected SelectMenuBar sMenuIndicator;
 
     private Timer timer;
-
     private int bitMapRes = R.mipmap.tuanlist_category_icon_dianying_high;
 
+    private GrouponAdapter gAdapter;
     private AdViewPagerAdapter adapter;
 
     private final int count = 16;
@@ -99,7 +97,7 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
         allGrouponBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "click allGrouponBTN ", Toast.LENGTH_SHORT).show();
+                showToast("click allGrouponBTN ");
             }
         });
 
@@ -116,7 +114,7 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
         sPushMenuBar.setMenuItemClickListener(new MenuItemClickListener() {
             @Override
             public void menuItemClick(View menuView, int position) {
-                Toast.makeText(getContext(), "click sPushMenuBar " + position, Toast.LENGTH_SHORT).show();
+                showToast("click sPushMenuBar " + position);
             }
         });
     }
@@ -130,6 +128,26 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
         adapter = new AdViewPagerAdapter(getContext(), bitMaps, row, column);
         styleMenu.setAdapter(adapter);
         adapter.setShowItemClickListener(this);
+        styleMenu.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                sMenuIndicator.setCurSelectItem(i);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+            }
+        });
+
+        sMenuIndicator.addView(new ViewPagerIndicator(getContext()).getView());
+        sMenuIndicator.addView(new ViewPagerIndicator(getContext()).getView());
+
+        styleMenu.setCurrentItem(0);
+        sMenuIndicator.setCurSelectItem(0);
     }
 
     private void initHeader() {
@@ -148,7 +166,7 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
         featuredMenu.setMenuItemClickListener(new MenuItemClickListener() {
             @Override
             public void menuItemClick(View menuView, int position) {
-                Toast.makeText(getContext(), "click featuredMenu " + position, Toast.LENGTH_SHORT).show();
+                showToast("click featuredMenu ");
             }
         });
 
@@ -189,32 +207,32 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
 
     @Override
     public void onSearchVoiceClick(View view) {
-        Toast.makeText(getContext(), "click onSearchVoiceClick ", Toast.LENGTH_SHORT).show();
+        showToast("click onSearchVoiceClick ");
     }
 
     @Override
     public void onHeaderLeftTextClick(View view) {
-        Toast.makeText(getContext(), "click onHeaderLeftTextClick ", Toast.LENGTH_SHORT).show();
+        showToast("click onHeaderLeftTextClick ");
     }
 
     @Override
     public void onHeaderBTNClick(View view) {
-        Toast.makeText(getContext(), "click onHeaderBTNClick ", Toast.LENGTH_SHORT).show();
+        showToast("click onHeaderBTNClick ");
     }
 
     @Override
     public void onSearchTextClickListener(View view) {
-        Toast.makeText(getContext(), "click onSearchTextClickListener ", Toast.LENGTH_SHORT).show();
+        showToast("click onSearchTextClickListener ");
     }
 
     @Override
     public void onShowItemClick(long position) {
-        Toast.makeText(getContext(), "click onShowItemClick " + position, Toast.LENGTH_SHORT).show();
+        showToast("click onShowItemClick ");
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getContext(), "click Groupon list " + position, Toast.LENGTH_SHORT).show();
+        showToast("click Groupon list ");
 
     }
 }
