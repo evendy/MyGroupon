@@ -23,18 +23,20 @@ public class GrouponAdapter extends CommonAdapter<GrouponItemDTO> {
         if (null != item.getIConUrl()) {
 
         }
-
-        if (null != item.getName()) {
-            viewHolder.setText(R.id.item_name, item.getName());
+        if (item.isFlashPush()) {
+            viewHolder.setImageResource(R.id.item_icon_flag, R.mipmap.groupon_ic_flash);
         }
+        if (item.isFreeAppoint()) {
+            viewHolder.setImageResource(R.id.item_icon_flag, R.mipmap.groupon_ic_free_appoint);
+        }
+
+        viewHolder.setText(R.id.item_name, item.getName());
         if (item.getDistance() > 0) {
             viewHolder.setText(R.id.item_distance, CommonUtils.getDistance(item.getDistance()));
         } else {
             viewHolder.getView(R.id.item_distance).setVisibility(View.INVISIBLE);
         }
-        if (null != item.getDescribe()) {
-            viewHolder.setText(R.id.item_describe, item.getDescribe());
-        }
+        viewHolder.setText(R.id.item_describe, item.getDescribe());
         if (item.getSalePrice() > 0) {
             viewHolder.getView(R.id.group_sale).setVisibility(View.VISIBLE);
             viewHolder.setText(R.id.item_current_price, "" + item.getSalePrice());

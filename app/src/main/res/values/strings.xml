@@ -50,4 +50,10 @@
 
     <string name="price">¥ %1$s</string>
     <string name="sale_number">已售 %1$s</string>
+
+    <string name="vip_rights">会员再减1元</string>
+
+    <string name="score">%1$s分</string>
+
+    <string name="ticket">券</string>
 </resources>

@@ -29,8 +29,9 @@ public class CommonUtils {
         }
 
         int totalHeight = 0;
+        View listItem;
         for (int i = 0; i < listAdapter.getCount(); i++) {
-            View listItem = listAdapter.getView(i, null, listView);
+            listItem = listAdapter.getView(i, null, listView);
             listItem.measure(0, 0);
             totalHeight += listItem.getMeasuredHeight();
         }

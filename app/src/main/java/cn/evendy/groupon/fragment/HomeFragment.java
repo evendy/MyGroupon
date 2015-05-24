@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -20,6 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.evendy.groupon.R;
 import cn.evendy.groupon.base.BaseFragment;
+import cn.evendy.groupon.constans.Constants;
 import cn.evendy.groupon.constans.HeaderStyle;
 import cn.evendy.groupon.module.GrouponItemDTO;
 import cn.evendy.groupon.module.GrouponListDTO;
@@ -73,7 +75,6 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
     private GrouponAdapter gAdapter;
     private AdViewPagerAdapter adapter;
 
-    private final int count = 16;
     private int row = 2;
     private final int column = 4;
 
@@ -104,6 +105,7 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
         itemDTO.setDistance(1000);
         itemDTO.setPrice(100);
         itemDTO.setSaleNumber(1000);
+        itemDTO.setFlashPush(true);
         list.add(itemDTO);
 
         itemDTO = new GrouponItemDTO();
@@ -112,6 +114,7 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
         itemDTO.setDescribe("好好吃的童子鸡");
         itemDTO.setOriginalPrice(100.0f);
         itemDTO.setSalePrice(80);
+        itemDTO.setFreeAppoint(true);
         list.add(itemDTO);
 
         itemDTO = new GrouponItemDTO();
@@ -165,12 +168,9 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
     }
 
     private void initStyleMenu() {
-        List<Integer> bitMaps = new ArrayList<Integer>();
-        for (int i = 0; i < count; i++) {
-            bitMaps.add(bitMapRes);
-        }
+        List<Integer> menu = Arrays.asList(Constants.bitMapRes);
 
-        adapter = new AdViewPagerAdapter(getContext(), bitMaps, row, column);
+        adapter = new AdViewPagerAdapter(getContext(), menu, row, column);
         styleMenu.setAdapter(adapter);
         adapter.setShowItemClickListener(this);
         styleMenu.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -210,9 +210,9 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
         grouponListDTO.setOriginalPrice(120);
         grouponListDTO.setSalePrice(60);
 
-        featuredMenu.addView(new FeatureMenuItem(getContext(), null, grouponListDTO.getName(), "" + grouponListDTO.getSaleNumber(), "" + grouponListDTO.getOriginalPrice()).getView());
-        featuredMenu.addView(new FeatureMenuItem(getContext(), null, grouponListDTO.getName(), "" + grouponListDTO.getSaleNumber(), "" + grouponListDTO.getOriginalPrice()).getView());
-        featuredMenu.addView(new FeatureMenuItem(getContext(), null, grouponListDTO.getName(), "" + grouponListDTO.getSaleNumber(), "" + grouponListDTO.getOriginalPrice()).getView());
+        featuredMenu.addView(new FeatureMenuItem(getContext(), null, grouponListDTO.getName(), "" + grouponListDTO.getOriginalPrice(), "" + grouponListDTO.getSalePrice()).getView());
+        featuredMenu.addView(new FeatureMenuItem(getContext(), null, grouponListDTO.getName(), "" + grouponListDTO.getOriginalPrice(), "" + grouponListDTO.getSalePrice()).getView());
+        featuredMenu.addView(new FeatureMenuItem(getContext(), null, grouponListDTO.getName(), "" + grouponListDTO.getOriginalPrice(), "" + grouponListDTO.getSalePrice()).getView());
         featuredMenu.setMenuItemClickListener(new MenuItemClickListener() {
             @Override
             public void menuItemClick(View menuView, int position) {
@@ -283,6 +283,5 @@ public class HomeFragment extends BaseFragment implements OnSearchVoiceClickList
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         showToast("click Groupon list " + position);
-
     }
 }

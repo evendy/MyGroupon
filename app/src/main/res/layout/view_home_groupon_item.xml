@@ -3,11 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/home_groupon_item_height"
     android:orientation="horizontal"
-    android:paddingBottom="10dp">
+    android:paddingBottom="5dp"
+    android:paddingRight="3dp"
+    android:paddingTop="5dp">
 
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="match_parent" />
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/item_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/item_icon_flag"
+            android:layout_width="40dp"
+            android:layout_height="30dp" />
+    </FrameLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -72,7 +86,6 @@
                 android:layout_alignParentLeft="true">
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/item_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,7 +95,8 @@
                     android:text="price"
                     android:textColor="@color/groupon_price"
                     android:textSize="@dimen/level_one_textSize"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/group_sale"

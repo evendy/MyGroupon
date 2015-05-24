@@ -114,11 +114,9 @@
             <ImageView style="@style/menu_item_line" />
 
             <ListView
-                android:id="@+id/featured_all_groupon"
+                android:id="@+id/featured_groupon"
                 android:layout_width="match_parent"
-                android:layout_height="500dp" />
-
-            <ImageView style="@style/menu_item_line" />
+                android:layout_height="wrap_content" />
 
             <ImageView
                 style="@style/menu_item_line"

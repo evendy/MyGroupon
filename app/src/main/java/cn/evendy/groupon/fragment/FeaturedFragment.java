@@ -6,8 +6,12 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -16,16 +20,19 @@ import butterknife.InjectView;
 import cn.evendy.groupon.R;
 import cn.evendy.groupon.base.BaseFragment;
 import cn.evendy.groupon.constans.HeaderStyle;
-import cn.evendy.groupon.view.listener.HeaderRightBTNClickListener;
+import cn.evendy.groupon.module.GrouponItemDTO;
+import cn.evendy.groupon.util.CommonUtils;
 import cn.evendy.groupon.util.TimeUtils;
+import cn.evendy.groupon.view.adapter.FeaturedGrouponAdapter;
 import cn.evendy.groupon.view.headerbar.HeaderBar;
+import cn.evendy.groupon.view.listener.HeaderRightBTNClickListener;
 
 /**
  * @author: evendy
  * @time: 2015/5/17 12:19
  * @mail: 244085027@qq.com
  */
-public class FeaturedFragment extends BaseFragment implements HeaderRightBTNClickListener {
+public class FeaturedFragment extends BaseFragment implements HeaderRightBTNClickListener, AdapterView.OnItemClickListener {
     @InjectView(R.id.main_featured_header)
     protected HeaderBar headerBar;
     @InjectView(R.id.last_hour)
@@ -34,8 +41,11 @@ public class FeaturedFragment extends BaseFragment implements HeaderRightBTNClic
     protected TextView vLastMin;
     @InjectView(R.id.last_second)
     protected TextView vLastSecond;
+    @InjectView(R.id.featured_groupon)
+    protected ListView featuredList;
 
     private Timer timer;
+    private FeaturedGrouponAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,6 +59,68 @@ public class FeaturedFragment extends BaseFragment implements HeaderRightBTNClic
         super.onActivityCreated(savedInstanceState);
         initHeader();
         initCountDownTimer();
+        initGrouponMain();
+    }
+
+    private void initGrouponMain() {
+
+        List<GrouponItemDTO> list = new ArrayList<GrouponItemDTO>();
+
+        GrouponItemDTO itemDTO = new GrouponItemDTO();
+        itemDTO.setName("童子鸡");
+        itemDTO.setDistance(419);
+        itemDTO.setDescribe("好好吃的童子鸡");
+        itemDTO.setSalePrice(80);
+        itemDTO.setOriginalPrice(100.0f);
+        itemDTO.setSellingPrice(120);
+        itemDTO.setScore(4.5f);
+        itemDTO.setSaleNumber(1000);
+        itemDTO.setFreeAppoint(true);
+        list.add(itemDTO);
+
+        itemDTO = new GrouponItemDTO();
+        itemDTO.setName("童子鸡");
+        itemDTO.setDistance(1500);
+        itemDTO.setDescribe("好好吃的童子鸡");
+        itemDTO.setSalePrice(80);
+        itemDTO.setOriginalPrice(100.0f);
+        itemDTO.setSellingPrice(120);
+        itemDTO.setScore(4.5f);
+        itemDTO.setSaleNumber(1000);
+        itemDTO.setVipRight(true);
+        itemDTO.setFlashPush(true);
+        list.add(itemDTO);
+
+        itemDTO = new GrouponItemDTO();
+        itemDTO.setName("童子鸡");
+        itemDTO.setDistance(1500);
+        itemDTO.setDescribe("好好吃的童子鸡");
+        itemDTO.setSalePrice(80);
+        itemDTO.setOriginalPrice(100.0f);
+        itemDTO.setSellingPrice(120);
+        itemDTO.setScore(5);
+        itemDTO.setSaleNumber(1000);
+        itemDTO.setIsTicket(true);
+        list.add(itemDTO);
+
+        itemDTO = new GrouponItemDTO();
+        itemDTO.setName("童子鸡");
+        itemDTO.setDistance(1500);
+        itemDTO.setDescribe("好好吃的童子鸡");
+        itemDTO.setSalePrice(80);
+        itemDTO.setOriginalPrice(100.0f);
+        itemDTO.setSellingPrice(120);
+        itemDTO.setScore(4.5f);
+        itemDTO.setSaleNumber(1000);
+        itemDTO.setIsTicket(true);
+        list.add(itemDTO);
+
+        adapter = new FeaturedGrouponAdapter(getContext(), list);
+        featuredList.setAdapter(adapter);
+
+        CommonUtils.setListViewHeightBasedOnChildren(featuredList);
+
+        featuredList.setOnItemClickListener(this);
     }
 
     private void initHeader() {
@@ -92,5 +164,10 @@ public class FeaturedFragment extends BaseFragment implements HeaderRightBTNClic
     public void onDestroy() {
         super.onDestroy();
         timer.cancel();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        showToast("click Groupon list " + position);
     }
 }
